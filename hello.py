@@ -8,4 +8,5 @@ print("Hello world")
 # followed by the program...
 # create a new file with a .bat extention
 # within the file the top line is @ py followed by the path to the file you wish to run
-# folloed by another command like pause.exe
+# %* this forward any command line arguements to this python program
+# followed by another command like pause.exe
