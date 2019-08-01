@@ -31,4 +31,25 @@ print(atRegex.findall("bate fate cate pate late gate slate "))
 atRegex = re.compile(r'.{1,2}ate')
 print(atRegex.findall("bate fate cate pate late gate slate "))
 
+# print only the fist name and last name of a particular string
+nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)')
+print(nameRegex.findall('First Name: Kev Last Name: Wilko'))
+
+mySong = '<What do you get when you fall in love?> a massive CSA bill!>'
+
+# only goes to the first >
+nonGreedy = re.compile(r'<(.*?)>')
+print(nonGreedy.findall(mySong))
+
+# print all
+greedy = re.compile(r'<(.*)>')
+print(greedy.findall(mySong))
+
+ThreeLawsOfRobotics = ' 1. A robot may not injure a human being,or, through inaction, allow another human being come ot harm.\n 2. A robot must obey the orders giben to itby human beings except  where such orders would conflict with the first law.\n 3. A robot must protect its own existence as long as such protection does not conflict with the first and second law.'
+
+print(ThreeLawsOfRobotics)
+
+findeverything = re.compile(r'.*', re.DOTALL)
+print(findeverything.search(ThreeLawsOfRobotics))
+
 
