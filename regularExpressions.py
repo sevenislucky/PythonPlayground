@@ -52,4 +52,22 @@ print(ThreeLawsOfRobotics)
 findeverything = re.compile(r'.*', re.DOTALL)
 print(findeverything.search(ThreeLawsOfRobotics))
 
+# finds Dr and one more word until a non word is recognised (space)
+namesRegex = re.compile(r'DR \w+')
+print(namesRegex.findall('DR Frankenstein was being investigated by DR Who'))
 
+# replace Dr names with sensored
+print(namesRegex.sub('sensored', 'DR Frankenstein was being investigated by DR Who'))
+
+# only display first initial
+namesRegex = re.compile(r'DR (\w)\w*')
+print(namesRegex.findall('DR Frankenstein was being investigated by DR Who') )
+
+# using verbose mode, helping to make coding more readable
+number = re.compile(r''''
+\d\d\d\d\d #area code
+- #dash
+\d\d\d\d\d\d # phone number
+''', re.VERBOSE)
+
+print(number.search('01903-823660'))
