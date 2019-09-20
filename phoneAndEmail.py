@@ -13,6 +13,9 @@ phoneRegex = re.compile(r'''
 ))
 ''', re.VERBOSE)
 
+# if verbose mode wasnt used this is what it would have looked like!
+# ((((\d\d\d\d\d) | (\d\d\d\d))(\s)(((\d\d\d\d\d\d) | (\d\d\d)))(\s)((\d\d\d\d))?))
+
 #TODO: Create Regex for email addresses
 emailRegex = re.compile(r'''
 #www.+whatever@(\d{2,5}))?.com
@@ -29,11 +32,15 @@ extracetedPhone = phoneRegex.findall(text)
 #TODO: Copy the extracted email/phone to the clipboard
 extracetedEmail = emailRegex.findall(text)
 
-print(extracetedEmail)
+#print(extracetedEmail)
 
 allTelephoneNumbers = []
 
 for phoneNumber in extracetedPhone:
     allTelephoneNumbers.append(phoneNumber[0])
 
-print(allTelephoneNumbers)
+#print(allTelephoneNumbers)
+
+results = '\n'.join(allTelephoneNumbers) + '\n' + '\n'.join(extracetedEmail)
+print(results)
+pyperclip.copy(results)
